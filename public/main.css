@@ -1,11 +1,11 @@
-body{
-    background-color: #008080;
-}
-
 .img-thumbnail{
     padding: 0px;
 }
 
 .card{
     background-color: #C0C0C0;
+}
+
+.item:hover{
+    transform: scale(1.1);
 }

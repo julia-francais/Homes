@@ -31,6 +31,20 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next)=>{
+    res.locals.currentUser = req.user;
+    next();
+})
+
+//AUTH MIDDLEWARE
+const isLoggedIn = (req, res, next)=> {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
+
+//ROUTES
 app.get('/', (req, res) => {
     res.render('landing');
 })
@@ -41,7 +55,7 @@ app.get('/campgrounds', (req, res) => {
             console.log(err);
         } else {
             console.log('campgrounds', campgrounds);
-            res.render('campgrounds/index', {campgrounds: campgrounds});
+            res.render('campgrounds/index', {campgrounds: campgrounds, currentUser: req.user});
         }
     })
 });
@@ -81,7 +95,7 @@ app.get("/campgrounds/:id", (req, res)=> {
 //===================
 
 //SHOW form comments
-app.get('/campgrounds/:id/comments/new', (req, res)=>{
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res)=>{
     Campground.findById(req.params.id, (err, campground)=> {
         if(err){
             console.log(err)
@@ -91,7 +105,7 @@ app.get('/campgrounds/:id/comments/new', (req, res)=>{
     })
 });
 
-app.post('/campgrounds/:id/comments', (req, res)=> {
+app.post('/campgrounds/:id/comments', isLoggedIn, (req, res)=> {
     Campground.findById(req.params.id, (err, campground)=> {
         if(err){
             console.log(err)
@@ -115,6 +129,7 @@ app.post('/campgrounds/:id/comments', (req, res)=> {
 //AUTH ROUTES
 //===================
 
+//show sign up form
 app.get('/register', (req, res)=> {
     res.render('register');
 });
@@ -133,6 +148,23 @@ app.post('/register', (req, res)=> {
     });
 });
 
+//show login form
+app.get('/login', (req, res)=>{
+    res.render('login');
+})
+
+//handling login logic
+app.post('/login', passport.authenticate("local", {
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login"
+}), (req, res)=> {
+})
+
+//logic route
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/campgrounds');
+});
 
 app.listen(port, () => {
     console.log(`Listening on ${port}`) 
