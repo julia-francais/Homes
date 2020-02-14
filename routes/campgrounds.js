@@ -2,12 +2,30 @@ const express= require('express'),
       Campground= require('../models/campground');
 const router = express.Router();
 
-//middleware
+//middlewares
 const isLoggedIn = (req, res, next)=> {
     if(req.isAuthenticated()){
         return next();
     }
     res.redirect('/login');
+};
+
+const checkOwnership = (req, res, next)=> {
+    if(req.isAuthenticated()){
+        Campground.findById(req.params.id, (err, foundCampground)=>{
+            if(err){
+                res.redirect('/campgrounds');
+            } else {
+                if(foundCampground.author.id.equals(req.user._id)){
+                    res.render('campgrounds/edit', {campground: foundCampground});
+                } else {
+                    res.send("No permission")
+                }
+            }
+        });
+    } else {
+        res.redirect("back")
+    }
 };
 
 //INDEX - show all Campgrounds
@@ -60,17 +78,14 @@ router.get("/:id", (req, res)=> {
 });
 
 //EDIT - edit a campground
-router.get('/:id/edit', (req, res)=> {
-    Campground.findById(req.params.id, (err, foundCampground)=>{
-        if(err){
-            res.redirect('/campgrounds');
-        }
-        res.render('campgrounds/edit', {campground: foundCampground});
-    });
+router.get('/:id/edit', checkOwnership, (req, res)=> {
+        Campground.findById(req.params.id, (err, foundCampground)=>{
+            res.render('campgrounds/edit', {campground: foundCampground});
+        });
 });
 
 //UPDATE - update a campground
-router.put('/:id', (req, res)=> {
+router.put('/:id', checkOwnership, (req, res)=> {
     console.log('put');
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground)=>{
         if(err){
@@ -78,6 +93,17 @@ router.put('/:id', (req, res)=> {
         } else {
             res.redirect('/campgrounds/' + req.params.id);
         };
+    });
+});
+
+//DESTROY - delete a campground
+router.delete('/:id', checkOwnership, (req, res)=> {
+    Campground.findByIdAndDelete(req.params.id, (err)=> {
+        if(err){
+            res.redirect('/campgrounds');
+        } else {
+            res.redirect('/campgrounds');
+        }
     });
 });
 
