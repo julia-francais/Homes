@@ -59,4 +59,26 @@ router.get("/:id", (req, res)=> {
     });
 });
 
+//EDIT - edit a campground
+router.get('/:id/edit', (req, res)=> {
+    Campground.findById(req.params.id, (err, foundCampground)=>{
+        if(err){
+            res.redirect('/campgrounds');
+        }
+        res.render('campgrounds/edit', {campground: foundCampground});
+    });
+});
+
+//UPDATE - update a campground
+router.put('/:id', (req, res)=> {
+    console.log('put');
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground)=>{
+        if(err){
+            res.redirect('/campgrounds');
+        } else {
+            res.redirect('/campgrounds/' + req.params.id);
+        };
+    });
+});
+
 module.exports = router;

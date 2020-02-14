@@ -4,19 +4,21 @@ const express= require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
+    methodOverride = require('method-override'),
     Campground = require('./models/campground'),
     Comment = require('./models/comment'),
-    User = require ('./models/user');
-    // seedDB = require('./seeds');
+    User = require ('./models/user')
+    seedDB = require('./seeds');
     
 //requiring routes
 const commentRoutes = require("./routes/comments"),
       campgroundRoutes = require("./routes/campgrounds"),
       indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/yelp_camp", {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride("_method"));
 
 const port = 3000;
 
