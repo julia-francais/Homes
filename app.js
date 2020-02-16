@@ -2,6 +2,7 @@ const express= require('express'),
     app = express(),
     bodyParser = require ("body-parser"),
     mongoose = require('mongoose'),
+    flash = require('connect-flash'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
     methodOverride = require('method-override'),
@@ -9,6 +10,7 @@ const express= require('express'),
     Comment = require('./models/comment'),
     User = require ('./models/user')
     seedDB = require('./seeds');
+
     
 //requiring routes
 const commentRoutes = require("./routes/comments"),
@@ -19,6 +21,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", {useUnifiedTopology: tru
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 const port = 3000;
 
@@ -40,11 +43,13 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next)=>{
     res.locals.currentUser = req.user;
+    res.locals.error= req.flash("error");
+    res.locals.success= req.flash("success");
     next();
 })
 
 app.use(indexRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use(commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
 app.listen(port, () => {
