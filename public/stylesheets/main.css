@@ -31,12 +31,14 @@ p#subtitle{
     top: 20px;
 }
 
-a.title{
+h4.title{
     color: #CF8565;
 }
 
 a.back{
-    color:81bfc0;
+    color: #81bfc0;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 a.nav-link {
@@ -84,6 +86,11 @@ a.nav-link {
     color:#fff;
     background-color: #CF8565;
     border-color: #CF8565;
+}
+
+#map{
+    height: 400px;
+    width: 100%;
 }
 
 .navbar-brand{

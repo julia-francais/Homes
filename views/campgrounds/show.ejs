@@ -1,6 +1,7 @@
 <%- include ('../partials/header') %>
 
 <div class="container">
+<!-- colonne de gauche avec plus d'infos a ajouter plus tard-->
     <!-- <div class="row">
         <div class="col-md-3">
             <p class="lead">Homes</p>
@@ -16,17 +17,15 @@
                 <img src=" <%= campground.image %>" class="img-responsive" width="100%"> 
                 <div class="caption-full p-2">
                     <h4 class="float-right"><%= campground.price %>$</h4>
-                    <h4><a class="title" href=""><%= campground.name %></a></h4>
+                    <h4 class="title"><%= campground.name %> - <%= campground.location %></h4>
                     <p class="p-2"><%= campground.description %></p>
                     <p class="p-2">
                         <em>Submitted by <%=campground.author.username%> </em>
                     </p>
-                    <% if (currentUser && campground.author.id.equals(currentUser._id)) {%>
                     <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
                     <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>
-                    <% } %>
                 </div>  
             </div>
             <div class="card p-2">
@@ -53,14 +52,45 @@
                     </div>
                 <% }) %>
             </div>
+            <a class="back" href="/campgrounds">Go back to campgrounds list</a>
+
         </div>
     </div>
-    
-
-
-
-
-
 </div>
+   
+<!--For when implementing the Maps API-->
+<!-- <script>
+    function initMap() {
+        var lat =  campground.lat ;
+        var lng = campground.lng;
+        var center = {lat: lat, lng: lng};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: center,
+            scrollwheel: false
+        });
+        var contentString = `
+        <strong><%= campground.name %><br />
+            <%= campground.location %></strong>
+            <p><%= campground.description %></p>
+            `
+        var infowindow = new google.maps.infowindow({
+            content: contentString
+        });
+        var marker = new google.maps.marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', ()=> {
+            infowi.open(map, marker);
+        });
+    } 
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpj9CNel2VKBqygw9t4HiIQ3UBIqvjkd0&callback=initMap"
+  type="text/javascript"></script> -->
+
+
+
+
 
 <%- include ('../partials/footer') %>
