@@ -16,19 +16,17 @@ p#subtitle{
     font-style: italic;
 }
 
+.item .img-thumbnail{
+    height:300px;
+}
+
 .img-thumbnail{
-    padding: 0px;
+    padding: 0;
 }
 
 .card{
     background-color: #e9c7b9;
     margin-top: 1em;
-}
-
-.container{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
 }
 
 h4.title{
@@ -47,6 +45,10 @@ a.nav-link {
 
 .container{
     padding: 1em;
+}
+
+.item{
+    margin-bottom: 1.5em;
 }
 
 .item:hover{
