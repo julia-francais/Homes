@@ -48,6 +48,12 @@ router.get('/logout', (req, res) => {
     res.redirect('/campgrounds');
 });
 
+//About section route
+//logout route
+router.get('/about', (req, res) => {
+    res.render('about');
+});
+
 //Comment routes that should be in the routes/comments.js file but aren't working (to work and move later)
 // EDIT 
 router.get('/campgrounds/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, (req, res)=>{

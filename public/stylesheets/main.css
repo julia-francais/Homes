@@ -1,9 +1,46 @@
+h1 {
+    font-size: 4em;
+}
+
+.fa-home{
+    font-size: 1.2em;
+    color: #fff;   
+}
+
+p#subtitle{
+    font-size: 1.2em;
+    font-style: italic;
+}
+
 .img-thumbnail{
     padding: 0px;
 }
 
 .card{
-    background-color: #C0C0C0;
+    background-color: #e9c7b9;
+    margin-top: 1em;
+}
+
+.container{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;: 
+}
+
+a.title{
+    color: #CF8565;
+}
+
+a.back{
+    color:81bfc0;
+}
+
+a.nav-link {
+    color: #fff;
+}
+
+.container{
+    padding: 1em;
 }
 
 .item:hover{
@@ -12,4 +49,61 @@
 
 .delete-form {
     display: inline;
+}
+
+.btn-primary, .btn-success {
+    background-color: #81bfc0;
+    border-color: #81bfc0;
+}
+
+.btn-outline-success {
+        border-color: #81bfc0;
+        color: #81bfc0;
+
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-outline-success:hover {
+    box-shadow: 0 0 0 0.2rem #81bfc0;
+    color:#fff;
+    background-color: #81bfc0;
+    border-color: #81bfc0;
+}
+
+
+ .btn-danger{
+    background-color: #CF8565;
+    border-color: #CF8565;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 0 0 0.2rem #CF8565;
+    color:#fff;
+    background-color: #CF8565;
+    border-color: #CF8565;
+}
+
+.navbar-brand{
+    color: #fff;
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.nav-link:hover{
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.navbar-brand:hover{
+    color: #fff;
+    font-size: 1.9em;
+}
+
+.jumbotron{
+    background-color:#edd2c7;
+    color: #fff;
+    border-radius: 0;
 }

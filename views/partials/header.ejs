@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Yelpcamp</title>
+        <title>Homes</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="stylesheets/main.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       </head>
     <body>
         
-        <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #81bfc0;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Yelpcamp</a>
+                  <i class="fas fa-home"></i> 
+                    <a class="navbar-brand" href="/">Homes</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="nav navbar-nav ">
                       <% if(!currentUser){ %>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/about">About</a>
+                        </li>
                         <li class="nav-item active">
                           <a class="nav-link" href="/login">Login</a>
                         </li>

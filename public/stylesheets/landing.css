@@ -2,6 +2,16 @@ body {
     background-color: #000000;
 }
 
+.btn-success{
+  background-color: #CF8565;
+  border-color: #CF8565;
+}
+
+.btn-success:hover{
+  background-color: #CF8565;
+  border-color: #CF8565;
+}
+
 #landing-header {
     z-index: 1;
     position: relative;
@@ -11,6 +21,16 @@ body {
 
 #landing-header h1{
     color: #ffffff;
+    font-size: 4em;
+}
+
+
+#landing-header h3{
+  color: #ffffff;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  font-weight: 200;
+  font-style: italic;
 }
 
 .slideshow {
@@ -45,26 +65,26 @@ img{
 }
 
 .slideshow li:nth-child(1) { 
-    background-image: url(https://images.unsplash.com/photo-1556967789-e6512208cf68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80/K3mPv14.jpg) 
+    background-image: url(https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80) 
   }
   
 .slideshow li:nth-child(2) { 
-    background-image: url(https://images.unsplash.com/photo-1516655855035-d5215bcb5604?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80.com/SBEmFpv.jpg);
+    background-image: url(https://images.unsplash.com/photo-1461237439866-5a557710c921?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80);
     animation-delay: 10s; 
   }
   
 .slideshow li:nth-child(3) { 
-    background-image: url(https://images.unsplash.com/photo-1548678928-070e09a5c847?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80/emvhOnb.jpg);
+    background-image: url(https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=1950&q=80);
     animation-delay: 20s; 
   }
 
  .slideshow li:nth-child(4) { 
-    background-image: url(https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80/2LSMCmJ.jpg);
+    background-image: url(https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80=crop&w=750&q=80/2LSMCmJ.jpg);
     animation-delay: 30s; 
   }
   
 .slideshow li:nth-child(5) { 
-    background-image: url(https://www.nationalgeographic.com/content/dam/archaeologyandhistory/rights-exempt/history-magazine/2016/01-02/petra/ed-deir.adapt.1900.1.jpg);
+    background-image: url(https://images.unsplash.com/https://dslv9ilpbe7p1.cloudfront.net/qH4wv3ribnirEilscRk-eg_store_header_image-1555400038-63f5ba517a47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
     animation-delay: 40s; 
   }
 
