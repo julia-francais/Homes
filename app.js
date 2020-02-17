@@ -17,9 +17,11 @@ const commentRoutes = require("./routes/comments"),
       campgroundRoutes = require("./routes/campgrounds"),
       indexRoutes = require("./routes/index");
 
-// mongoose.connect("mongodb://localhost:27017/yelp_camp",
-mongoose.connect("mongodb+srv://juju:juju@cluster0-3biab.mongodb.net/test?retryWrites=true&w=majority", 
+      console.log(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL,
 {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true
+// mongoose.connect("mongodb+srv://juju:juju@cluster0-3biab.mongodb.net/test?retryWrites=true&w=majority", 
+// {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true
 }).then(()=> {
     console.log('connected to db');
 }).catch(err => {
@@ -60,6 +62,6 @@ app.use(indexRoutes);
 app.use(commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
     console.log(`Listening on ${port}`) 
 })
