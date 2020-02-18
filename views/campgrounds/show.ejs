@@ -28,11 +28,14 @@
                     </form>
                 </div>  
             </div>
+            <div class="text-right mt-3">
+                <a class="btn btn-success" href="/campgrounds/<%= campground._id%>/comments/new">Add new comment</a>
+            </div>
+                <% if (campground.comments.length) { %>
             <div class="card p-2">
-                <div class="text-right">
+                <!-- <div class="text-right">
                     <a class="btn btn-success" href="/campgrounds/<%= campground._id%>/comments/new">Add new comment</a>
-                </div>
-                <hr>
+                </div> -->
                 <% campground.comments.forEach((comment)=>{ %>
                     <div class="row">
                         <div class="col-md-12">
@@ -50,9 +53,9 @@
                             <% } %>
                         </div>
                     </div>
-                <% }) %>
+                <% }) } %>
             </div>
-            <a class="back" href="/campgrounds">Go back to campgrounds list</a>
+            <a class="back mt-3" href="/campgrounds">Go back to campgrounds list</a>
 
         </div>
     </div>

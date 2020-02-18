@@ -34,8 +34,9 @@ h4.title{
 }
 
 a.back{
+    display: inline-block;
     color: #81bfc0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 700;
 }
 
@@ -70,7 +71,7 @@ a.nav-link {
 
 }
 
-.btn-primary:hover, .btn-success:hover, .btn-outline-success:hover {
+.btn-primary:hover, .btn-success:hover, .btn-success:active, .btn-outline-success:hover {
     box-shadow: 0 0 0 0.2rem #81bfc0;
     color:#fff;
     background-color: #81bfc0;
@@ -119,4 +120,15 @@ a.nav-link {
     background-color:#edd2c7;
     color: #fff;
     border-radius: 0;
+}
+
+.footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+.footer a {
+    color: #81bfc0;
 }

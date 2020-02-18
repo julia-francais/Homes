@@ -2,15 +2,12 @@ body {
     background-color: #000000;
 }
 
-.btn-success{
+.welcome-button, .welcome-button:hover, .welcome-button:active, .welcome-button:focus{
   background-color: #CF8565;
+  color: #fff;
   border-color: #CF8565;
 }
 
-.btn-success:hover{
-  background-color: #CF8565;
-  border-color: #CF8565;
-}
 
 #landing-header {
     z-index: 1;
