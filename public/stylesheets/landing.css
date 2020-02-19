@@ -14,11 +14,12 @@ body {
     position: relative;
     text-align: center;
     padding-top:40vh;
-}
+  }
 
 #landing-header h1{
     color: #ffffff;
     font-size: 4em;
+    text-shadow: 3px 3px 4px rgba(15,6,4,0.64);
 }
 
 
@@ -28,6 +29,7 @@ body {
   font-size: 1.5em;
   font-weight: 200;
   font-style: italic;
+  text-shadow: 3px 3px 4px rgba(15,6,4,0.64);
 }
 
 .slideshow {
