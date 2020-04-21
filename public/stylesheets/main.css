@@ -16,10 +16,6 @@ p#subtitle{
     font-style: italic;
 }
 
-.item .img-thumbnail{
-    height:300px;
-}
-
 .img-thumbnail{
     padding: 0;
 }
@@ -51,10 +47,10 @@ a.nav-link {
 .item{
     margin-bottom: 1.5em;
 }
-
+/* 
 .item:hover{
     transform: scale(1.1);
-}
+} */
 
 .delete-form {
     display: inline;
